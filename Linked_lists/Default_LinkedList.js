@@ -1,3 +1,5 @@
+//NOTE THIS IS ALSO KNOWN AS SINGLY LINKED LIST (INSERT AT LAST NODE)
+
 //defined a node
 class ListNode {
   constructor(val) {
