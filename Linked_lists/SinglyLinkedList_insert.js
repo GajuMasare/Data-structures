@@ -36,6 +36,33 @@ class SinglyLinkedList {
     this.size++;
   }
 
+  //method to insert node at a specific index
+  insertAtIndex(index, value) {
+    if (index < 0 || index > this.size) {
+      return false;
+    }
+
+    const newNode = new SinglyLinkedListNode(value);
+    if (index === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      let previous = null;
+      let currentIndex = 0;
+
+      while (currentIndex < index) {
+        previous = current;
+        current = current.next;
+        currentIndex++;
+      }
+      newNode.next = current;
+      previous.next = newNode;
+    }
+    this.size++;
+    return true;
+  }
+
   //method to print the values of the list
   print() {
     let current = this.head;
@@ -51,4 +78,5 @@ myList.insertFirst(5);
 myList.insertLast(10);
 myList.insertLast(20);
 myList.insertLast(30);
+myList.insertAtIndex(3, 15);
 myList.print();
